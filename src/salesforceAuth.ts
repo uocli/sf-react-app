@@ -1,10 +1,10 @@
 // Salesforce OAuth2 configuration
 export const SALESFORCE_OAUTH2 = {
-  clientId: process.env.REACT_APP_SF_CLIENT_ID || '',
-  redirectUri: process.env.REACT_APP_REDIRECT_URI || (window.location.origin + '/oauth/callback'),
+  clientId: process.env.SF_CLIENT_ID || '',
+  redirectUri: process.env.REDIRECT_URI || (window.location.origin + '/oauth/callback'),
   authUrl: 'https://login.salesforce.com/services/oauth2/authorize',
   responseType: 'code',
-  scope: process.env.REACT_APP_OAUTH_SCOPES || 'openid profile email',
+  scope: process.env.OAUTH_SCOPES || 'openid profile email',
 };
 
 // PKCE helper functions
