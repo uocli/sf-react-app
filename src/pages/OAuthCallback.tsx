@@ -16,13 +16,13 @@ const OAuthCallback: React.FC = () => {
       window.location.replace("/");
       return;
     }
-    const data = new URLSearchParams({
-      grant_type: "authorization_code",
-      code,
-      client_id: SALESFORCE_OAUTH2.clientId,
-      redirect_uri: SALESFORCE_OAUTH2.redirectUri,
-      code_verifier: codeVerifier,
-    });
+    // const data = new URLSearchParams({
+    //   grant_type: "authorization_code",
+    //   code,
+    //   client_id: SALESFORCE_OAUTH2.clientId,
+    //   redirect_uri: SALESFORCE_OAUTH2.redirectUri,
+    //   code_verifier: codeVerifier,
+    // });
     // fetch("https://login.salesforce.com/services/oauth2/token", {
     //   method: "POST",
     //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
