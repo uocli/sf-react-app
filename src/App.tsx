@@ -2,14 +2,18 @@ import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-import { SALESFORCE_OAUTH2, generateCodeVerifier, generateCodeChallenge } from "./salesforceAuth";
+import {
+  SALESFORCE_OAUTH2,
+  generateCodeVerifier,
+  generateCodeChallenge,
+} from "./salesforceAuth";
 
 function App() {
   const [loading, setLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const token = localStorage.getItem("sf_access_token");
+    const token = sessionStorage.getItem("sf_access_token");
     setIsLoggedIn(!!token);
   }, []);
 
@@ -37,11 +41,15 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         {isLoggedIn ? (
-          <div style={{margin: '1em', fontSize: '1.2em', color: '#0f0'}}>
+          <div style={{ margin: "1em", fontSize: "1.2em", color: "#0f0" }}>
             Logged in with Salesforce!
           </div>
         ) : (
-          <button onClick={handleLogin} disabled={loading} style={{margin: '1em', padding: '1em 2em', fontSize: '1em'}}>
+          <button
+            onClick={handleLogin}
+            disabled={loading}
+            style={{ margin: "1em", padding: "1em 2em", fontSize: "1em" }}
+          >
             {loading ? "Redirecting..." : "Login with Salesforce"}
           </button>
         )}
